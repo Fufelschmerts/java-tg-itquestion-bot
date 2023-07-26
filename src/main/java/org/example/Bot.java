@@ -16,15 +16,15 @@ public class Bot extends TelegramLongPollingBot {
   public Bot() {
     questions = new AbstractQuestion[4];
     questions[0] = new JavaQuestion();
-    questions[3] = new SQLQuestion();
+    questions[1] = new SQLQuestion();
     questions[2] = new HttpQuestion();
-    questions[1] = new GitQuestion();
+    questions[3] = new GitQuestion();
     users = new ConcurrentHashMap<>();
   }
 
   @Override
   public String getBotUsername() {
-    return "ITQuestionsBot";
+    return "YOUR_BOT_NAME";
   }
 
   @Override
@@ -66,7 +66,7 @@ public class Bot extends TelegramLongPollingBot {
     data.setScore(result ? data.getScore() + 1 : data.getScore());
     data.setCurrentQuestion(currentQuestion + 1);
     if (currentQuestion == questions.length - 1) {
-      String rating = "Ваш рейтинг: " + data.getScore() + " из " + questions.length + " чмоков \uD83D\uDC8B";
+      String rating = "Ваш рейтинг: " + data.getScore() + " из " + questions.length + " очков";
       sendText(userId, rating + " Спасибо за участие! Перезапустите бота командой /start, чтобы пройти тестирование еще раз.");
       System.out.println(message.getPhoto() + message.getFrom().getFirstName() + " " + message.getFrom().getLastName() + " " + rating);
     } else {

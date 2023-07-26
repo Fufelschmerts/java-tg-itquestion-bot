@@ -1,2 +1,3 @@
-# java-tg-itquestion-bot
-# java-tg-itquestion-bot
+# Java bot for IT questions in telegram
+
+## by @sortedmap
